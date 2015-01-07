@@ -17,7 +17,7 @@ var Slider = function($container, params) {
   /**
    * @type {object}
    */
-  this.params = (params !== undefined) ? params : {
+  this.params = {
     'title' : '',
     'slide' : '.b_slide',
     'nav-class' : 'b_slide__nav',
@@ -26,6 +26,12 @@ var Slider = function($container, params) {
     'current-class' : 'b_slide--current',
     'events' : {}
   };
+
+  if (params !== undefined) {
+    for (var key in params) {
+      this.params[key] = params[key];
+    }
+  }
 
 
   /**

@@ -3,8 +3,9 @@
  */
 $(document).ready(function(){
 
-
-  // Presentations Init
+  /**
+   * Presentations Init
+   */
   var PageControls = (function() {
 
     var curPresent = null;
