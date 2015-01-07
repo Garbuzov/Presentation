@@ -53,6 +53,8 @@ var Slider = function($container, params) {
   this.__getSlide(0).addClass(this.params['current-class']);
 
   this.__setSlidesNav();
+
+  this.__bindControls();
 };
 
 
@@ -63,6 +65,30 @@ var Slider = function($container, params) {
  */
 Slider.prototype.__getSlide = function (index) {
   return this.slides.eq(index);
+};
+
+
+/**
+ *
+ */
+Slider.prototype.__bindControls = function() {
+  var self = this;
+  $(document).keyup(function(event) {
+    if (self.container.is(':visible')) {
+      var x = event.charCode || event.keyCode;
+      switch(x) {
+        case 32:
+          self.showNextSlide();
+          break;
+        case 39:
+          self.showNextSlide();
+          break;
+        case 37:
+          self.showPrevSlide();
+          break;
+      }
+    }
+  });
 };
 
 
@@ -201,6 +227,8 @@ Slider.prototype.play = function() {
 Slider.prototype.bindEvents = function(events) {
   this.params.events = events;
 };
+
+
 
 
 

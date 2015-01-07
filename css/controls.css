@@ -10,6 +10,8 @@
   height: 50px;
   text-align: center;
   box-shadow: 0 0 10px #000;
+  opacity: 0;
+  transition: opacity 3s;
 }
 .b_controls__btn {
   display: inline-block;
@@ -26,4 +28,8 @@
 }
 .b_controls__btn:hover {
   background-color: #208050;
+}
+.b_controls--visible {
+  opacity: 1;
+  transition: opacity 1s;
 }

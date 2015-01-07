@@ -3,6 +3,8 @@
  */
 $(document).ready(function(){
 
+
+  // Presentations Init
   var PageControls = (function() {
 
     var curPresent = null;
@@ -60,11 +62,31 @@ $(document).ready(function(){
     }
   })();
 
+
+  // Sidebar show/hide
   var $sidebar = $('.b_sidebar');
 
   $('.b_sidebar__label').click(function(){
     $sidebar.toggleClass('b_sidebar--active');
     $(this).find('.fa').toggleClass('fa-chevron-right').toggleClass('fa-chevron-left');
+  });
+
+
+  // Init of universal Control Panel
+  var timeCounter = 0;
+  var $controlPanel = $('.b_controls');
+
+  setInterval(function(){
+    timeCounter++;
+    if (timeCounter > 2) {
+      $controlPanel.removeClass('b_controls--visible');
+    } else {
+      $controlPanel.addClass('b_controls--visible');
+    }
+  }, 1000);
+
+  $(document).mousemove(function(){
+    timeCounter = 0;
   });
 
   $('.c_btn_next').click(function() {
@@ -73,12 +95,6 @@ $(document).ready(function(){
 
   $('.c_btn_prev').click(function() {
     PageControls.prevSlide();
-  });
-
-  $(document).keypress(function(event) {
-    if (event.charCode === 32) {
-      PageControls.nextSlide();
-    }
   });
 
   $('.c_btn_play').click(function() {
