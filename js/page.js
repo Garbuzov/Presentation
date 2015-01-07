@@ -12,6 +12,9 @@ $(document).ready(function(){
     var $navItem = null;
     var $presentations = $('.b_slide__wrapper');
 
+    var navItemClass = util.getBlockClass($nav) + '__item';
+    var navItemActiveClass = navItemClass + '--active';
+
     $presentations.each(function(index) {
       var $gallery = $(this);
       var slider = new Slider($gallery);
@@ -22,18 +25,20 @@ $(document).ready(function(){
 
       // Инициализация библиотеки презентаций
       $navItem = $('<li>' + 'Презентация ' + index + '</li>');
-      $navItem.attr('class', util.getBlockClass($nav) + '__item');
+      $navItem.attr('class', navItemClass);
 
       $navItem.click(function(){
+        $(this).addClass(navItemActiveClass)
+            .siblings().removeClass(navItemActiveClass);
         $gallery.addClass(activeClass)
             .siblings().removeClass(activeClass);
         curPresent = slider;
         clearInterval(animation);
       });
       $nav.append($navItem);
-
     });
 
+    $nav.children().eq(0).addClass(navItemActiveClass);
     $presentations.eq(0).addClass(activeClass);
 
     return {
@@ -68,6 +73,12 @@ $(document).ready(function(){
 
   $('.c_btn_prev').click(function() {
     PageControls.prevSlide();
+  });
+
+  $(document).keypress(function(event) {
+    if (event.charCode === 32) {
+      PageControls.nextSlide();
+    }
   });
 
   $('.c_btn_play').click(function() {

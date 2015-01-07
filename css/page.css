@@ -19,11 +19,12 @@ body {
   float: left;
   height: 100%;
   border-right: 1px solid #444;
-  box-shadow: 0px 0px 30px #000 inset;
+  box-shadow: 0 0 30px #000 inset;
   position: relative;
-  padding: 0px;
+  padding: 0;
   transition: width 1s;
   z-index: 10;
+  overflow: hidden;
 }
 .b_sidebar--active {
   width: 200px;
@@ -64,14 +65,8 @@ body {
 
 /* Nav Menu */
 .b_nav_menu {
-  width: 0;
-  overflow: hidden;
-  transition: width 0.5s;
   margin: 40px;
   padding: 0;
-}
-.b_sidebar--active .b_nav_menu {
-  width: 100%;
 }
 .b_nav_menu__item {
   text-align: center;
@@ -82,7 +77,10 @@ body {
   margin-bottom: 30px;
   background-color: #fff9c0;
   padding: 10px;
-  text-align: center;
   box-shadow: 0 0 5px #000;
   border-radius: 3px;
+  cursor: pointer;
+}
+.b_nav_menu__item--active{
+  background-color: #fbca3c;
 }

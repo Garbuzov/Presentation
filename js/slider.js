@@ -17,19 +17,20 @@ var Slider = function($container, params) {
   /**
    * @type {object}
    */
-  this.params =  {
+  this.params = (params !== undefined) ? params : {
     'title' : '',
     'slide' : '.b_slide',
     'nav-class' : 'b_slide__nav',
     'nav-item-class' : 'b_slide__nav__item',
     'nav-item-active-class' : 'b_slide__nav__item--current',
-    'current-class' : 'b_slide--current'
+    'current-class' : 'b_slide--current',
+    'events' : {}
   };
 
 
   /**
    *
-   * @type {jQuerн}
+   * @type {jQuery}
    */
   this.slides = $(this.container.find(this.params['slide']));
 
@@ -120,24 +121,34 @@ Slider.prototype.__setSlidesNav = function() {
   $nav.appendTo(this.container);
 };
 
-
 /**
- *
+ * @param index
+ * @private
  */
 Slider.prototype.__setActiveNav = function(index) {
   this.nav.removeClass(this.params['nav-item-active-class'])
       .eq(index).addClass(this.params['nav-item-active-class']);
 };
 
+/**
+ * @param index
+ * @private
+ */
+Slider.prototype.__runSlideEvents = function(index) {
+  if (this.params.events[index] && typeof this.params.events[index] === 'function') {
+    this.params.events[index]();
+  }
+};
+
 
 /**
- *
  * @param index
  */
 Slider.prototype.goTo = function(index) {
   this.__getSlide(this.curSlide).removeClass(this.params['current-class']);
   this.__getSlide(index).addClass(this.params['current-class']);
   this.__setActiveNav(index);
+  this.__runSlideEvents(index);
   this.curSlide = index;
 };
 
@@ -174,6 +185,22 @@ Slider.prototype.play = function() {
   return slideAnimation;
 };
 
+/**
+ * @type {object} events
+ * {
+ *   '5' : function() {
+ *     $('.btn').click(function(){
+ *        alert('clicked');
+ *     })
+ *   },
+ *   '2' : function() {
+ *     console.log('This slide 2');
+ *   }
+ * }
+ */
+Slider.prototype.bindEvents = function(events) {
+  this.params.events = events;
+};
 
 
 
