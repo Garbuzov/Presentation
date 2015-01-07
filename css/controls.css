@@ -2,14 +2,12 @@
   position: absolute;
   bottom: 40px;
   left: 50%;
-  background-color: rgba(255,255,255, 0.3);
   border-radius: 10px;
   padding: 10px;
   width: 30%;
   margin-left: -15%;
   height: 50px;
   text-align: center;
-  box-shadow: 0 0 10px #000;
   opacity: 0;
   transition: opacity 3s;
 }
@@ -17,17 +15,17 @@
   display: inline-block;
   padding: 10px;
   margin: 3px;
-  background-color: green;
+  background-color: #c6aa1f;
   border-radius: 5px;
   cursor: pointer;
   width: 40px;
-  box-shadow: 0 0 3px #000;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 .b_controls__btn:hover {
-  background-color: #208050;
+  background-color: #dd791e;
 }
 .b_controls--visible {
   opacity: 1;

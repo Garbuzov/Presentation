@@ -18,8 +18,8 @@ body {
   width: 0;
   float: left;
   height: 100%;
-  border-right: 1px solid #444;
-  box-shadow: 0 0 30px #000 inset;
+  border-right: 1px solid #777777;
+  box-shadow: -20px 0 30px rgba(0,0,0,0.3) inset;
   position: relative;
   padding: 0;
   transition: width 1s;
@@ -54,6 +54,9 @@ body {
 .b_sidebar__label .fa {
   margin-left: 20px;
 }
+.b_sidebar__label:hover {
+  background-color: #fbca3c;
+}
 
 /* Presentation View */
 .b_presentations {
@@ -77,8 +80,8 @@ body {
   margin-bottom: 30px;
   background-color: #fff9c0;
   padding: 10px;
-  box-shadow: 0 0 5px #000;
-  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  border: 1px solid #c29731;
   cursor: pointer;
 }
 .b_nav_menu__item--active{
