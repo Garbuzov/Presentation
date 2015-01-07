@@ -1,4 +1,4 @@
 Presentation
 ============
 
-Presentation System
+Система для показа презентаций. 

@@ -1,0 +1,29 @@
+.b_controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  background-color: rgba(255,255,255, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  width: 30%;
+  margin-left: -15%;
+  height: 50px;
+  text-align: center;
+  box-shadow: 0 0 10px #000;
+}
+.b_controls__btn {
+  display: inline-block;
+  padding: 10px;
+  margin: 3px;
+  background-color: green;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 40px;
+  box-shadow: 0 0 3px #000;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.b_controls__btn:hover {
+  background-color: #208050;
+}
